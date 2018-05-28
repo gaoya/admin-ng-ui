@@ -1,0 +1,51 @@
+<nz-header style="background: #fff; padding:0;">
+  <div nz-row nzType="flex" nzJustify="space-between" nzAlign="middle">
+    <div nz-col [nzSpan]="2">
+      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="switchCollapsed()"></i>
+    </div>
+
+    <div nz-col [nzPull]="1" >
+      <ul nz-menu [nzMode]="'horizontal'">
+        <li nz-menu-item [routerLink]="['/',{outlets:{app:'lock'}}]"><span ><i class="anticon anticon-lock"></i>锁定</span></li>
+        <li nz-menu-item><i class="anticon anticon-mail"></i> One</li>
+        <li nz-menu-item><i class="anticon anticon-bell"></i> 信息推送</li>
+        <li nz-menu-item>
+          <nz-popover [nzPlacement]="'top'">
+            <button nz-button nz-popover>Top</button>
+            <ng-template #nzTemplate>
+              <div><p>Content</p>
+                <p>Content</p></div>
+            </ng-template>
+          </nz-popover>
+
+
+        </li>
+        <li nz-menu-item>
+
+          <nz-dropdown [nzTrigger]="'click'">
+            <!--<button nz-button >bottomRight</button>-->
+            <span  nz-dropdown><nz-avatar nzIcon="anticon anticon-user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+              Administrator
+            </span>
+            <ul nz-menu >
+              <li nz-menu-item>
+                <a>个人中心</a>
+              </li>
+              <li nz-menu-item>
+                <a>设置</a>
+              </li>
+              <li nz-menu-divider></li>
+              <li nz-menu-item [routerLink]="['/',{outlets:{app:'loginout'}}]">
+                <a>退出</a>
+              </li>
+            </ul>
+          </nz-dropdown>
+
+
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+</nz-header>

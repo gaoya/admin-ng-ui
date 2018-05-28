@@ -1,0 +1,64 @@
+{
+  "code": "1",
+  "msg": "请求成功",
+  "menu": [
+    {
+      "icon": "anticon anticon-user",
+      "menuName": "系统管理员",
+      "menuId": "10",
+      "isParent": "true",
+      "subMenu": [
+        {
+          "menuId": "1001",
+          "menuName": "用户",
+          "icon": "anticon-user",
+          "isParent": "false",
+          "routerLink": "admin"
+        },
+        {
+          "menuId": "1002",
+          "menuName": "角色",
+          "icon": "anticon-user",
+          "isParent": "false",
+          "routerLink": "role"
+        },
+        {
+          "menuId": "1003",
+          "menuName": "权限",
+          "icon": "anticon-user",
+          "isParent": "false",
+          "routerLink": "permit"
+        }
+      ]
+    },
+    {
+      "icon": "anticon anticon-user",
+      "menuName": "参数设置",
+      "menuId": "20",
+      "isParent": "true",
+      "subMenu": [
+        {
+          "menuId": "2001",
+          "menuName": "参数设置",
+          "icon": "anticon-team",
+          "isParent": "false",
+          "routerLink": "admin"
+        },
+        {
+          "menuId": "2002",
+          "menuName": "项目设置",
+          "icon": "anticon-project",
+          "isParent": "false",
+          "routerLink": "project"
+        },
+        {
+          "menuId": "2003",
+          "menuName": "搜索设置",
+          "icon": "anticon-user",
+          "isParent": "false",
+          "routerLink": "search"
+        }
+      ]
+    }
+  ]
+}

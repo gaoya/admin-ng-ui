@@ -1,0 +1,20 @@
+<div class="logo">
+</div>
+<ul nz-menu [nzTheme]="'dark'" [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
+  <!--添加首页-->
+  <!--<li nz-menu-item [nzSelected]="true" [routerLink]="['welcome']" (click)="siderClick(homePage,defaultParentMenu)">-->
+  <li nz-menu-item [nzSelected]="true" [routerLink]="['/layout',homePage.routerLink]" (click)="siderClick(homePage,defaultParentMenu)">
+      <span title>
+          <i class="{{homePage.icon}}"></i>
+          <span>{{homePage.menuName}}</span>
+      </span>
+  </li>
+  <!--json 数据读取-->
+  <li nz-submenu *ngFor="let menu of menus">
+    <span title><i class="{{menu.icon}}"></i><span class="nav-text">{{menu.menuName}}</span></span>
+    <ul *ngIf="menu.isParent == 'true'">
+      <li nz-menu-item (click)="siderClick(sub, menu)" *ngFor="let sub of menu.subMenu"  routerLink="{{sub.routerLink}}">{{sub.menuName}}</li>
+    </ul>
+  </li>
+
+</ul>

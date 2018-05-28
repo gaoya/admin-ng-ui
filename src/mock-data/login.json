@@ -1,0 +1,16 @@
+{
+    "code": "1",
+    "msg": "登陆成功",
+    "user": {
+      "userId": "100000",
+      "userName": "administrator",
+      "org": {
+        "orgId":"org001",
+        "orgName":"新沂市"
+      } ,
+      "permit": [
+        {"permitId": "p001", "permitName": "系统管理员"},
+        {"permitId": "p002", "permitName": "普通用户"}
+      ]
+    }
+}

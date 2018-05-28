@@ -1,0 +1,9 @@
+<nz-tabset [nzType]="'card'" [nzSelectedIndex]="selectIndex" style="padding-left: 10px;padding-top: 10px" [nzSize]="small">
+  <nz-tab *ngFor="let tab of menus" [nzTitle]="titleTemplate">
+    <ng-template #titleTemplate>
+      <div (click)="switchTabs(tab)"><span >{{ tab.menuName }}</span>
+        <i class="anticon anticon-close" (click)="closeTab(tab)" *ngIf="tab.menuId !== '0001'"></i>
+      </div>
+    </ng-template>
+  </nz-tab>
+</nz-tabset>

@@ -1,0 +1,24 @@
+<nz-layout>
+  <!-- 菜单栏 -->
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="triggerTemplate">
+    <app-sider [isCollapsed]="isCollapsed" (eventTabs)="setTabs($event)"></app-sider>
+  </nz-sider>
+  <nz-layout>
+    <!-- header -->
+    <app-header (siderShow)="showCollapsedSider($event)"></app-header>
+    <nz-layout>
+      <app-tabs #tabsComponent (eventTabs)="setbcb($event)" ></app-tabs>
+    </nz-layout>
+    <app-bcb [bcb]="bcb"  ></app-bcb>
+
+    <nz-content style="margin:0 16px;">
+      <div style="padding:24px; background: #fff; min-height: 360px;">
+        <app-content></app-content>
+      </div>
+    </nz-content>
+    <app-footer></app-footer>
+  </nz-layout>
+</nz-layout>
+<ng-template #trigger>
+  <i class="anticon anticon-up"></i>
+</ng-template>
