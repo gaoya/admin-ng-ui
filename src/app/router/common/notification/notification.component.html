@@ -1,0 +1,30 @@
+<!--<nz-list-->
+  <!--class="demo-loadmore-list"-->
+  <!--[nzDataSource]="data"-->
+  <!--[nzItemLayout]="'horizontal'"-->
+  <!--[nzLoading]="loading"-->
+  <!--[nzRenderItem]="item"-->
+  <!--[nzLoadMore]="loadMore">-->
+
+  <nz-list [nzDataSource]="data" [nzRenderItem]="item" [nzItemLayout]="'horizontal'"
+    [nzLoadMore]="loadMore"
+  >
+  <ng-template #item let-item>
+    <nz-list-item [nzActions]="[moreAction]">
+      <nz-list-item-meta
+        [nzTitle]="nzTitle"
+        nzAvatar="{{item.notificationIcon}}"
+        nzDescription="{{item.notificationContent}}">
+        <ng-template #nzTitle>
+          <a href="{{item.notificationUrl}}">{{item.notificationTitle}}</a>
+        </ng-template>
+      </nz-list-item-meta>
+    </nz-list-item>
+  </ng-template>
+  <ng-template #loadMore>
+    <div *ngIf="showLoadingMore" class="loadmore">
+      <button nz-button *ngIf="!loadingMore" (click)="onLoadMore()">loading more</button>
+      <nz-spin *ngIf="loadingMore" [nzSpinning]="loadingMore"></nz-spin>
+    </div>
+  </ng-template>
+</nz-list>

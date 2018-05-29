@@ -7,18 +7,13 @@
     <div nz-col [nzPull]="1" >
       <ul nz-menu [nzMode]="'horizontal'">
         <li nz-menu-item [routerLink]="['/',{outlets:{app:'lock'}}]"><span ><i class="anticon anticon-lock"></i>锁定</span></li>
-        <li nz-menu-item><i class="anticon anticon-mail"></i> One</li>
-        <li nz-menu-item><i class="anticon anticon-bell"></i> 信息推送</li>
         <li nz-menu-item>
-          <nz-popover [nzPlacement]="'top'">
-            <button nz-button nz-popover>Top</button>
-            <ng-template #nzTemplate>
-              <div><p>Content</p>
-                <p>Content</p></div>
+          <nz-popover [nzPlacement]="'bottomRight'">
+            <span nz-popover><i class="anticon anticon-bell"></i> 信息推送</span>
+            <ng-template #nzTemplate style="padding-top: 20px;margin-top: 20px">
+              <app-notification></app-notification>
             </ng-template>
           </nz-popover>
-
-
         </li>
         <li nz-menu-item>
 

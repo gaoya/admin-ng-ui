@@ -24,8 +24,6 @@ export class SiderComponent implements OnInit {
       this.menus = result.menu;
     });
     this.siderClick(this.homePage, this.defaultParentMenu);
-    // 跳转
-    // this.router.navigate(['/(app:layout/(content:' + this.homePage.routerLink + '))'], { replaceUrl: true });
   }
 
   /**

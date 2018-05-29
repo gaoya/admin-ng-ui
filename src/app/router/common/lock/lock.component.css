@@ -1,0 +1,27 @@
+.login-header {
+  background: #1890ff;
+  padding-left: 60px;
+}
+.login-content {
+  padding-top: 10%;
+  background: #ffffff;
+}
+/*页脚*/
+.login-footer{
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+}
+
+.login-form {
+  max-width: 300px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}

@@ -1,0 +1,12 @@
+{
+  "code": "1",
+  "msg": "请求数据成功",
+  "data": [
+    {"notificationId": "1", "notificationTitle": "Java的影响很大", "notificationIcon": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png", "notificationContent": "这是一个扯淡的信息，我只是觉得好玩的情况下，瞎折腾", "notificationUrl": "http://www.baidu.com"},
+    {"notificationId": "2", "notificationTitle": "C++的影响很大", "notificationIcon": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png", "notificationContent": "这是一个扯淡的信息，我只是觉得好玩的情况下，瞎折腾", "notificationUrl": "http://www.baidu.com"},
+    {"notificationId": "3", "notificationTitle": "Node的影响很大", "notificationIcon": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png", "notificationContent": "这是一个扯淡的信息，我只是觉得好玩的情况下，瞎折腾", "notificationUrl": "http://www.baidu.com"},
+    {"notificationId": "4", "notificationTitle": "Angular的影响很大", "notificationIcon": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png", "notificationContent": "这是一个扯淡的信息，我只是觉得好玩的情况下，瞎折腾", "notificationUrl": "http://www.baidu.com"},
+    {"notificationId": "5", "notificationTitle": "Python的影响很大", "notificationIcon": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png", "notificationContent": "这是一个扯淡的信息，我只是觉得好玩的情况下，瞎折腾", "notificationUrl": "http://www.baidu.com"},
+    {"notificationId": "6", "notificationTitle": "Php的影响很大", "notificationIcon": "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png", "notificationContent": "这是一个扯淡的信息，我只是觉得好玩的情况下，瞎折腾", "notificationUrl": "http://www.baidu.com"}
+  ]
+}

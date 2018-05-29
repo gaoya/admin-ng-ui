@@ -3,7 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
+import {NgZorroAntdModule, NzMessageService, NzModalService} from 'ng-zorro-antd';
 import { AppComponent } from './app.component';
 import {routes} from './router/routes';
 import { registerLocaleData } from '@angular/common';
@@ -21,6 +21,10 @@ import { LockComponent } from './router/common/lock/lock.component';
 import { Code404Component } from './router/common/code404/code404.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './router/common/login/login.component';
+import { NotificationComponent } from './router/common/notification/notification.component';
+import { AdminComponent } from './router/admin/admin.component';
+import { AdminService } from './service/sys/admin.service';
+import { AdminViewComponent } from './router/admin/adminView.component';
 registerLocaleData(zh);
 
 @NgModule({
@@ -37,6 +41,9 @@ registerLocaleData(zh);
     LockComponent,
     Code404Component,
     LoginComponent,
+    NotificationComponent,
+    AdminComponent,
+    AdminViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +55,14 @@ registerLocaleData(zh);
     RouterModule.forRoot(routes, {useHash: true, enableTracing: true})
   ],
   providers: [
-    CommonService
+    CommonService,
+    AdminService,
+    NzModalService,
+    NzMessageService
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [
+    AdminViewComponent
+  ]
 })
 export class AppModule { }

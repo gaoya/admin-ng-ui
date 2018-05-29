@@ -1,3 +1,44 @@
-<p>
-  lock works!
-</p>
+<!--<a [routerLink]="[{outlets:{app:'layout/welcome'}}]">cccc</a>-->
+<!--112313-->
+<nz-layout>
+  <nz-header class="login-header">
+    <h1>后台管理系统</h1>
+  </nz-header>
+  <nz-content class="login-content">
+    <div nz-row style="height: 100%;">
+      <div nz-col [nzOffset]="16" [nzSpan]="8">
+
+        <nz-card style="width:350px;" nzTitle="输入密码解锁" [nzExtra]="extraTemplate">
+          <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="anticon anticon-lock">
+                  <input type="password" nz-input formControlName="password" (focus)="userAndPwdError=false" placeholder="密码">
+                </nz-input-group>
+                <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">
+                  请输入密码！
+                </nz-form-explain>
+                <nz-form-explain *ngIf="userAndPwdError">
+                  <span style="color: #fc3031;">请重新输入密码解锁！</span>
+                </nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <button nz-button class="login-form-button" [nzType]="'primary'">解锁</button>
+              </nz-form-control>
+            </nz-form-item>
+
+          </form>
+        </nz-card>
+      </div>
+    </div>
+  </nz-content>
+  <div class="login-footer">
+    <app-footer></app-footer>
+  </div>
+
+</nz-layout>
+
+
+

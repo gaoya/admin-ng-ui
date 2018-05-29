@@ -8,6 +8,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class HeaderComponent implements OnInit {
   isCollapsed = false;
   @Output() siderShow = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
