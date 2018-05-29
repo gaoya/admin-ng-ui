@@ -1,136 +1,140 @@
 <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
   <div nz-row>
-    <div nz-col [nzOffset]="2" [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzRequired nzFor="name">用户名</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input formControlName="name" id="name">
+        <nz-form-label nzRequired nzFor="name" [nzSpan]="6">用户名</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <input nz-input formControlName="name" [ngModel]="data.name" *ngIf="type==='new'|| type ==='update'; else nameDetailView">
+          <ng-template #nameDetailView>{{data.name}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('name').dirty && validateForm.get('name').errors">
             用户名不能为空!
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-    <div nz-col [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzFor="sex" nzRequired>性别</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <nz-radio-group formControlName="sex" [(ngModel)]="sexValue" nzName="sex">
+        <nz-form-label nzFor="sex" nzRequired [nzSpan]="6">性别</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-radio-group formControlName="sex"  [(ngModel)]="data.sex" nzName="sex" *ngIf="type==='new'|| type ==='update'; else sexDetailView">
             <label nz-radio nzValue="0">男</label>
             <label nz-radio nzValue="1">女</label>
             <label nz-radio nzValue="2">未知</label>
           </nz-radio-group>
+          <ng-template #sexDetailView>{{data.sex}}</ng-template>
         </nz-form-control>
       </nz-form-item>
     </div>
-  </div>
-  <div nz-row>
-    <div nz-col [nzOffset]="2" [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzRequired nzFor="age">年龄</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input formControlName="age" id="age">
+        <nz-form-label nzRequired nzFor="age" [nzSpan]="6">年龄</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <input nz-input formControlName="age" id="age" [ngModel]="data.age" *ngIf="type==='new'|| type ==='update'; else ageDetailView">
+          <ng-template #ageDetailView>{{data.age}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('age').dirty && validateForm.get('age').errors">
             年领不能为空!
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-    <div nz-col [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzFor="phone" nzRequired>手机号码</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input id="phone" formControlName="phone"
-                 (ngModelChange)="updateConfirmValidator()">
+        <nz-form-label nzFor="phone" nzRequired [nzSpan]="6">手机号码</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <input nz-input id="phone" formControlName="phone" [ngModel]="data.phone" *ngIf="type==='new'|| type ==='update'; else phoneDetailView">
+          <ng-template #phoneDetailView>{{data.phone}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('phone').dirty && validateForm.get('phone').errors">
             手机号码不能为空
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-  </div>
-  <div nz-row>
-    <div nz-col [nzOffset]="2" [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzRequired nzFor="email">Email</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input formControlName="email" id="email">
+        <nz-form-label nzRequired nzFor="email" [nzSpan]="6">Email</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <input nz-input formControlName="email" id="email" [ngModel]="data.email" *ngIf="type==='new'|| type ==='update'; else emailDetailView" >
+          <ng-template #emailDetailView>{{data.email}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('email').dirty && validateForm.get('email').errors">
             邮箱不能为空!
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-    <div nz-col [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzFor="qq" nzRequired>QQ</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input id="qq" formControlName="qq"
-                 (ngModelChange)="updateConfirmValidator()">
+        <nz-form-label nzFor="qq" nzRequired [nzSpan]="6">QQ</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <input nz-input id="qq" formControlName="qq" [ngModel]="data.qq" *ngIf="type==='new'|| type ==='update'; else qqDetailView">
+          <ng-template #qqDetailView>{{data.qq}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('qq').dirty && validateForm.get('qq').errors">
-            QQ 不能为空！
+            QQ不能为空！
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-  </div>
-  <div nz-row>
-    <div nz-col [nzOffset]="2" [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzRequired nzFor="useFlag">是否使用</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input formControlName="useFlag" id="useFlag">
-          <nz-form-explain *ngIf="validateForm.get('useFlag').dirty && validateForm.get('useFlag').errors">
-            是否使用
+        <nz-form-label nzRequired nzFor="stateFlag" [nzSpan]="6">状态</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-radio-group formControlName="stateFlag" [(ngModel)]="data.stateFlag" nzName="stateFlag" *ngIf="type==='new'|| type ==='update'; else stateDetailView">
+            <label nz-radio nzValue="0">使用</label>
+            <label nz-radio nzValue="1">停用</label>
+            <label nz-radio nzValue="2">锁定</label>
+          </nz-radio-group>
+          <ng-template #stateDetailView>{{data.stateFlag}}</ng-template>
+          <nz-form-explain *ngIf="validateForm.get('stateFlag').dirty && validateForm.get('stateFlag').errors">
+            必须选择一种状态！
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-    <div nz-col [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzFor="delFlag" nzRequired>创建人</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input id="delFlag" formControlName="delFlag"
-                 (ngModelChange)="updateConfirmValidator()">
+        <nz-form-label nzFor="delFlag" nzRequired [nzSpan]="6">删除</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <nz-radio-group formControlName="delFlag" [(ngModel)]="data.delFlag" nzName="delFlag" *ngIf="type==='new'|| type ==='update'; else delDetailView">
+            <label nz-radio nzValue="0">是</label>
+            <label nz-radio nzValue="1">否</label>
+          </nz-radio-group>
+          <ng-template #delDetailView>{{data.delFlag}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('delFlag').dirty && validateForm.get('delFlag').errors">
-            是否删除不能为空！
+            必须选择！
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-  </div>
-  <div nz-row>
-    <div nz-col [nzOffset]="2" [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzRequired nzFor="createTime">创建时间</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input formControlName="createTime" id="createTime">
+        <nz-form-label nzRequired nzFor="createTime" [nzSpan]="6">创建时间</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <input nz-input formControlName="createTime" id="createTime" [ngModel]="data.createTime" *ngIf="type==='new'|| type ==='update'; else timeDetailView">
+          <ng-template #timeDetailView>{{data.createTime}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('createTime').dirty && validateForm.get('createTime').errors">
-            邮箱不能为空!
+            创建时间不能为空!
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-    <div nz-col [nzSpan]="10">
+    <div nz-col [nzSpan]="12">
       <nz-form-item nzFlex>
-        <nz-form-label nzFor="createUser" nzRequired>创建人</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input id="createUser" formControlName="createUser"
-                 (ngModelChange)="updateConfirmValidator()">
+        <nz-form-label nzFor="createUser" nzRequired [nzSpan]="6">创建人</nz-form-label>
+        <nz-form-control [nzSpan]="16">
+          <input nz-input id="createUser" formControlName="createUser"  [ngModel]="data.createUser" *ngIf="type==='new'|| type ==='update'; else userDetailView">
+          <ng-template #userDetailView>{{data.createUser}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('createUser').dirty && validateForm.get('createUser').errors">
             创建人不能为空！
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
     </div>
-  </div>
-
-  <div nz-row>
-    <div nz-col [nzOffset]="2" [nzSpan]="20">
+    <div nz-col [nzSpan]="24">
       <nz-form-item nzFlex>
-        <nz-form-label nzRequired nzFor="remark">备注</nz-form-label>
-        <nz-form-control style="width: 80%">
-          <input nz-input formControlName="remark" id="remark">
+        <nz-form-label nzRequired nzFor="remark" [nzSpan]="3">备注</nz-form-label>
+        <nz-form-control [nzSpan]="20">
+          <!--<input nz-input formControlName="remark" id="remark">-->
+          <textarea [nzAutosize]="{ minRows: 4, maxRows: 6 }" nz-input formControlName="remark" id="remark"  [ngModel]="data.remark" *ngIf="type==='new'|| type ==='update'; else remarkDetailView"></textarea>
+          <ng-template #remarkDetailView>{{data.remark}}</ng-template>
           <nz-form-explain *ngIf="validateForm.get('remark').dirty && validateForm.get('remark').errors">
             备注不能为空
           </nz-form-explain>

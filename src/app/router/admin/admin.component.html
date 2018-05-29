@@ -58,9 +58,9 @@
       <td>{{data.age}}</td>
       <td>{{data.address}}</td>
       <td>
-        <a (click)="showModal('详情', 'detail')">详情</a>
+        <a (click)="showModal('详情', 'detail',data)">详情</a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a (click)="showModal('修改', 'update')">修改</a>
+        <a (click)="showModal('修改', 'update',data)">修改</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a (click)="delData(data)">删除</a>
       </td>

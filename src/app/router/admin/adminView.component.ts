@@ -20,11 +20,11 @@ import {
  *    所以在处理过程中一定要保证传入数据值的一致性。
  */
 export class AdminViewComponent implements OnInit {
-
+  // 文件类型 new update detail
   @Input() type: string;
-  @Input() subtitle: string;
+  // 数据
+  @Input() data: any;
   validateForm: FormGroup;
-  @Input() sexValue;
   constructor(private modal: NzModalRef, private fb: FormBuilder) { }
 
   submitForm(): void {
@@ -54,7 +54,6 @@ export class AdminViewComponent implements OnInit {
 
   ngOnInit(): void {
     // this.sexModel = '0';
-    console.log('.....' + this.sexValue);
     this.validateFormRule();
   }
 
@@ -69,7 +68,7 @@ export class AdminViewComponent implements OnInit {
       phone: [null, [Validators.required]],
       email: [null, [Validators.required]],
       qq: [null, [Validators.required]],
-      useFlag: [null, [Validators.required]],
+      stateFlag: ['0', [Validators.required]],
       delFlag: [null, [Validators.required]],
       createTime: [null, [Validators.required]],
       createUser: [null, [Validators.required]],

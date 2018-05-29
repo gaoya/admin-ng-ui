@@ -37,15 +37,14 @@ export class AdminComponent implements OnInit {
   /***
    *  打开组件
    */
-  showModal(title, type) {
+  showModal(title, type, data: any = {}) {
     const modal = this.modalService.create({
       nzTitle: title,
       nzWidth: '85%',
       nzContent: AdminViewComponent,
       nzComponentParams: {
         type: type,
-        subtitle: 'component sub title，will be changed after 2 sec',
-        sexValue: '0'
+        data: data
       },
       nzFooter: [
         {
