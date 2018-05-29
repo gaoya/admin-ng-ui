@@ -44,7 +44,8 @@ export class AdminComponent implements OnInit {
       nzContent: AdminViewComponent,
       nzComponentParams: {
         type: type,
-        subtitle: 'component sub title，will be changed after 2 sec'
+        subtitle: 'component sub title，will be changed after 2 sec',
+        sexValue: '0'
       },
       nzFooter: [
         {
@@ -63,18 +64,18 @@ export class AdminComponent implements OnInit {
         }]
     });
 
-    modal.afterOpen.subscribe(() => console.log('[afterOpen] emitted!'));
-
-    // Return a result when closed
-    modal.afterClose.subscribe((result) => {
-      console.log('[afterClose] The result is:', result);
-    });
-
-    // delay until modal instance created
-    window.setTimeout(() => {
-      const instance = modal.getContentComponent();
-      instance.subtitle = 'sub title is changed';
-    }, 2000);
+    // modal.afterOpen.subscribe(() => console.log('[afterOpen] emitted!'));
+    //
+    // // Return a result when closed
+    // modal.afterClose.subscribe((result) => {
+    //   console.log('[afterClose] The result is:', result);
+    // });
+    //
+    // // delay until modal instance created
+    // window.setTimeout(() => {
+    //   const instance = modal.getContentComponent();
+    //   instance.subtitle = 'sub title is changed';
+    // }, 2000);
   }
 
   /**

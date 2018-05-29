@@ -15,7 +15,7 @@
       <nz-form-item nzFlex>
         <nz-form-label nzFor="sex" nzRequired>性别</nz-form-label>
         <nz-form-control style="width: 80%">
-          <nz-radio-group [(ngModel)]="sex">
+          <nz-radio-group formControlName="sex" [(ngModel)]="sexValue" nzName="sex">
             <label nz-radio nzValue="0">男</label>
             <label nz-radio nzValue="1">女</label>
             <label nz-radio nzValue="2">未知</label>

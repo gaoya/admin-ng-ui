@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import {enableProdMode, NgModule} from '@angular/core';
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {NgZorroAntdModule, NzMessageService, NzModalService} from 'ng-zorro-antd';
