@@ -38,6 +38,7 @@ export class AdminComponent implements OnInit {
    *  打开组件
    */
   showModal(title, type, data: any = {}) {
+    console.log('-----------\n' + data);
     const modal = this.modalService.create({
       nzTitle: title,
       nzWidth: '85%',

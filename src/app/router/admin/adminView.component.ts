@@ -31,7 +31,6 @@ export class AdminViewComponent implements OnInit {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[ i ].markAsDirty();
       this.validateForm.controls[ i ].updateValueAndValidity();
-      console.log(' controls == ' + this.validateForm.controls[ i ]) ;
     }
   }
 
@@ -63,7 +62,7 @@ export class AdminViewComponent implements OnInit {
   validateFormRule(): void {
     this.validateForm = this.fb.group({
       name: [null, [Validators.required]],
-      sex: ['0', [Validators.required]],
+      sex: [null, [Validators.required]],
       age: [null, [Validators.required]],
       phone: [null, [Validators.required]],
       email: [null, [Validators.required]],
