@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {retry} from 'rxjs/operator/retry';
 import {LOCK_URL, LOGIN_URL, MENUS_URL, NOTIFICATION_URL} from '../url-service-config';
 
 @Injectable()

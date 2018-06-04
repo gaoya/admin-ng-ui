@@ -5,6 +5,7 @@ export const WELCOME_MENU = {   // WELCOME 首页数据设置
   'routerLink': 'welcome'
 };
 
+// 此处我们需要进行优化，将其去掉
 export const DEFAULT_PARENT_MENU = {
   'pName': '',
   'pId': ''

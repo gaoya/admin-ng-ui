@@ -29,6 +29,7 @@ import {InputText12Component} from './router/common/input-text-12.component';
 import {InputTextArea24Component} from './router/common/input-textarea-24.component';
 import {InputDetail12Component} from './router/common/input-detail-12.component';
 import {InputRadio12Component} from './router/common/input-radio-12.component';
+import {CommonTable} from './data/common-table';
 
 registerLocaleData(zh);
 
@@ -67,7 +68,8 @@ registerLocaleData(zh);
     CommonService,
     AdminService,
     NzModalService,
-    NzMessageService
+    NzMessageService,
+    CommonTable
   ],
   bootstrap: [AppComponent],
   entryComponents: [

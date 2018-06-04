@@ -2,11 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import {AdminService} from '../../service/sys/admin.service';
 import {NzMessageService, NzModalService} from 'ng-zorro-antd';
 import {AdminViewComponent} from './adminView.component';
+import {CommonTable} from '../../data/common-table';
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
+  providers: [
+    NzMessageService,
+    NzModalService
+  ]
 })
 export class AdminComponent implements OnInit {
   dataSet = [];
@@ -31,51 +36,23 @@ export class AdminComponent implements OnInit {
   pageIndex = 1;
   pageSize = 10;
 
-  constructor(private adminService: AdminService, private message: NzMessageService, private modalService: NzModalService) {
+  constructor(private adminService: AdminService,
+              private modalService: NzModalService,
+              private commonTable: CommonTable) {
   }
 
   /***
    *  打开组件
    */
   showModal(title, type, data: any = {}) {
-    console.log('-----------\n' + data);
-    const modal = this.modalService.create({
-      nzTitle: title,
-      nzWidth: '85%',
-      nzContent: AdminViewComponent,
-      nzComponentParams: {
-        type: type,
-        data: data
-      },
-      nzFooter: [
-        {
-          label: '确定',
-          onClick: (componentInstance) => {
-            console.log(componentInstance.validateForm.controls[ 'sex' ].value);
-            componentInstance.submitForm();
-            // componentInstance.title = 'title in inner component is changed';
-          }
-        },
-        {
-          label: '关闭',
-          onClick: () => {
-            this.modalService.closeAll();
-          }
-        }]
-    });
+    let btns = [];
+    if (type !== 'detail') {
+      btns = [this.commonTable.OK, this.commonTable.CLOSE];
+    } else {
+      btns = [this.commonTable.CLOSE];
+    }
+    this.commonTable.showModal(title, type, data, btns, AdminViewComponent);
 
-    // modal.afterOpen.subscribe(() => console.log('[afterOpen] emitted!'));
-    //
-    // // Return a result when closed
-    // modal.afterClose.subscribe((result) => {
-    //   console.log('[afterClose] The result is:', result);
-    // });
-    //
-    // // delay until modal instance created
-    // window.setTimeout(() => {
-    //   const instance = modal.getContentComponent();
-    //   instance.subtitle = 'sub title is changed';
-    // }, 2000);
   }
 
   /**
@@ -84,11 +61,11 @@ export class AdminComponent implements OnInit {
   delData(data: any) {
     this.adminService.delData(data.id).subscribe((result: any) => {
       if (result.code === '1') {
-        this.message.create('success', '删除数据成功！');
+        this.commonTable.msgPrompt('success', '删除数据成功！');
         this.adminList(true);
         this.refreshStatus();
       } else {
-        this.message.create('error', '删除失败！');
+        this.commonTable.msgPrompt('error', '删除失败！');
       }
     });
   }
@@ -106,15 +83,15 @@ export class AdminComponent implements OnInit {
     if (ids !== undefined && ids.length > 0) {
       this.adminService.batchDelUser(ids).subscribe((result: any) => {
         if (result.code === '1') {
-          this.message.create('success', '成功删除了' + result.count + '条数据!');
+          this.commonTable.msgPrompt('success', '成功删除了' + result.count + '条数据!');
           this.adminList(true);
           this.refreshStatus();
         } else {
-          this.message.create('error', '删除失败！');
+          this.commonTable.msgPrompt('error', '删除失败！');
         }
       });
     } else {
-      this.message.create('error', '请选择需要删除的数据');
+      this.commonTable.msgPrompt('error', '请选择需要删除的数据');
     }
   }
 

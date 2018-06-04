@@ -19,8 +19,6 @@ import {Component, Input, OnInit} from '@angular/core';
           </nz-form-control>
         </nz-form-item>
       </div>
-
-
     </form>
   `,
   styles: []
@@ -28,7 +26,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class InputRadio12Component implements OnInit {
 
   @Input() data?: any;
-  valueMsg;
+  valueMsg;   // 此处是将value的值进行转换的语句
   constructor() {
   }
 
