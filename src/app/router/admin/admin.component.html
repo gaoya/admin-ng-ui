@@ -22,27 +22,27 @@
   #dynamicTable
   nzShowSizeChanger
   (nzCurrentPageDataChange)="currentPageDataChange($event)"
-  [nzScroll]="fixHeader?{ y: '440px' }:null"
-  [nzData]="dataSet"
-  [nzBordered]="bordered"
-  [nzLoading]="loading"
-  [nzFrontPagination]="pagination"
-  [nzShowPagination]="pagination"
+  [nzScroll]="tableSet.fixHeader?{ y: '440px' }:null"
+  [nzData]="tableSet.dataSet"
+  [nzBordered]="tableSet.bordered"
+  [nzLoading]="tableSet.loading"
+  [nzFrontPagination]="tableSet.pagination"
+  [nzShowPagination]="tableSet.pagination"
   [nzPageSizeOptions]="[ 10, 20, 30, 40, 50 ]"
-  [nzFooter]="footer?'Here is Footer':null"
-  [nzTitle]="title?'Here is Title':null"
-  [nzNoResult]="noResult"
-  [nzTotal]="total"
-  [(nzPageIndex)]="pageIndex"
-  [(nzPageSize)]="pageSize"
+  [nzFooter]="tableSet.footer?'Here is Footer':null"
+  [nzTitle]="tableSet.title?'Here is Title':null"
+  [nzNoResult]="tableSet.noResult"
+  [nzTotal]="tableSet.total"
+  [(nzPageIndex)]="tableSet.pageIndex"
+  [(nzPageSize)]="tableSet.pageSize"
   [nzShowQuickJumper]="true"
   (nzPageIndexChange)="searchData()"
   (nzPageSizeChange)="searchData(true)"
-  [nzSize]="size">
-  <thead *ngIf="header">
+  [nzSize]="tableSet.size">
+  <thead *ngIf="tableSet.header">
   <tr>
-    <th nzWidth="50px" nzShowExpand *ngIf="expandable"></th>
-    <th nzWidth="62px" nzShowCheckbox *ngIf="checkbox" [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+    <th nzWidth="50px" nzShowExpand *ngIf="tableSet.expandable"></th>
+    <th nzWidth="62px" nzShowCheckbox *ngIf="tableSet.checkbox" [(nzChecked)]="tableSet.allChecked" [nzIndeterminate]="tableSet.indeterminate" (nzCheckedChange)="checkAll($event)"></th>
     <th nzWidth="150px">姓名</th>
     <th nzWidth="70px">年龄</th>
     <th>地址</th>
@@ -52,8 +52,8 @@
   <tbody>
   <ng-template ngFor let-data [ngForOf]="dynamicTable.data">
     <tr>
-      <td nzShowExpand *ngIf="expandable" [(nzExpand)]="data.expand"></td>
-      <td nzShowCheckbox *ngIf="checkbox" [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)"></td>
+      <td nzShowExpand *ngIf="tableSet.expandable" [(nzExpand)]="data.expand"></td>
+      <td nzShowCheckbox *ngIf="tableSet.checkbox" [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus($event)"></td>
       <td>{{data.name}}</td>
       <td>{{data.age}}</td>
       <td>{{data.address}}</td>
@@ -65,9 +65,9 @@
         <a (click)="delData(data)">删除</a>
       </td>
     </tr>
-    <tr [nzExpand]="data.expand&&expandable">
+    <tr [nzExpand]="data.expand&&tableSet.expandable">
       <td></td>
-      <td [attr.colspan]="checkbox?5:4">{{data.description}}</td>
+      <td [attr.colspan]="tableSet.checkbox?5:4">{{data.description}}</td>
     </tr>
   </ng-template>
   </tbody>
